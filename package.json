@@ -1,0 +1,51 @@
+{
+  "name": "npl",
+  "displayName": "nova-parsel-language",
+  "description": "provides language syntax for parsel and nova",
+  "version": "0.0.1",
+  "repository": {},
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "nova",
+        "aliases": [
+          "novascript",
+          "nova"
+        ],
+        "extensions": [
+          ".nova"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "parsel",
+        "aliases": [
+          "parsel"
+        ],
+        "extensions": [
+          ".par"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nova",
+        "scopeName": "source.nova",
+        "path": "./syntaxes/nova.tmLanguage.json"
+      },
+      {
+        "language": "parsel",
+        "scopeName": "source.parsel",
+        "path": "./syntaxes/parsel.tmLanguage.json"
+      }
+    ]
+  }
+}

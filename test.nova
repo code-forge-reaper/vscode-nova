@@ -1,0 +1,11 @@
+class Test
+    var name : string
+    func init()
+        this.name = "alex"
+    end
+    static func test()
+    end
+end
+
+var x = new Test()
+print(x.name)

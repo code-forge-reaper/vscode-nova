@@ -1,0 +1,205 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "NovaScript",
+	"fileTypes": [
+		"nova"
+	],
+	"scopeName": "source.nova",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#function_definitions"
+		},
+		{
+			"include": "#namespace_definition"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#builtins"
+		},
+		{
+			"include": "#function_calls"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#custom_types"
+		},
+		{
+			"match": "\\b[a-zA-Z_]\\w*\\b",
+			"name": "variable.other.nova"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"match": "//.*$",
+					"name": "comment.line.double-slash.nova"
+				},
+				{
+					"begin": "/\\*",
+					"end": ".*\\*/",
+					"name": "comment.block.nova",
+					"patterns": [
+						{
+							"match": ".+"
+						}
+					]
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"end": "\"",
+					"name": "string.quoted.double.nova",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.nova"
+						}
+					]
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"match": "\\b-?\\d+(\\.\\d+)?\\b",
+					"name": "constant.numeric.nova"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"match": "\\b(var|func|def|return|import|type|class|inherits|static)\\b",
+					"name": "keyword.declaration.nova"
+				},
+				{
+					"match": "\\b(new|super)\\b",
+					"name": "keyword.control.flow.nova"
+				},
+				{
+					"match": "\\bas\\b\\s+(\\w+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.nova"
+						}
+					},
+					"name": "keyword.declaration.nova"
+				},
+				{
+					"match": "\\b(for|break|continue|forEach|while|do|in|end|else|elseif|if|try|errored|defer)\\b",
+					"name": "keyword.control.flow.nova"
+				},
+				{
+					"match": "\\b(string|number|function|boolean|void)\\b",
+					"name": "storage.type.nova"
+				},
+				{
+					"match": "\\b(undefined|null|NaN)\\b",
+					"name": "constant.language.nova"
+				}
+			]
+		},
+		"namespace_definition": {
+			"patterns": [
+				{
+					"match": "\\b(namespace|using)\\b\\s+(\\w+)",
+					"captures": {
+						"1": {
+							"name": "keyword.declaration.nova"
+						},
+						"2": {
+							"name": "entity.name.namespace.nova"
+						}
+					}
+				}
+			]
+		},
+		"function_definitions": {
+			"patterns": [
+				{
+					"match": "\\bfunc\\b\\s+(\\w+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.nova"
+						}
+					},
+					"name": "keyword.declaration.function.nova"
+				}
+			]
+		},
+		"function_calls": {
+			"patterns": [
+				{
+					"match": "\\b[a-zA-Z_]\\w*(?=\\()",
+					"name": "entity.name.function.nova"
+				}
+			]
+		},
+		"custom_types": {
+			"patterns": [
+				{
+					"match": "\\btype\\b\\s+(\\w+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.type.nova"
+						}
+					},
+					"name": "keyword.declaration.nova"
+				}
+			]
+		},
+		"builtins": {
+			"patterns": [
+				{
+					"match": "\\b(true|false)\\b",
+					"name": "constant.language.nova"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"match": "\\b(switch|case|default)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.declaration.nova"
+						}
+					},
+					"name": "keyword.declaration.nova"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"match": "==|!=|<=|>=|\\+=|-=|\\*=|/=|&&|\\|\\||[=+\\-*/<>!]",
+					"name": "keyword.operator.nova"
+				},
+				{
+					"match": "[\\(\\)\\[\\]\\{\\}\\.,:]",
+					"name": "punctuation.separator.nova"
+				}
+			]
+		}
+	}
+}
