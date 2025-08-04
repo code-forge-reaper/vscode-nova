@@ -94,7 +94,7 @@
                     "name": "keyword.control.flow.parsel"
                 },
                 {
-                    "match": "\\b(say|think|options|set)\\b",
+                    "match": "\\b(say|narrate|think|options|set)\\b",
                     "name": "keyword.statement.parsel"
                 },
                 {
