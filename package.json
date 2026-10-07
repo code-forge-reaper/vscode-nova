@@ -23,16 +23,6 @@
           ".nova"
         ],
         "configuration": "./language-configuration.json"
-      },
-      {
-        "id": "parsel",
-        "aliases": [
-          "parsel"
-        ],
-        "extensions": [
-          ".par"
-        ],
-        "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
@@ -40,11 +30,6 @@
         "language": "nova",
         "scopeName": "source.nova",
         "path": "./syntaxes/nova.tmLanguage.json"
-      },
-      {
-        "language": "parsel",
-        "scopeName": "source.parsel",
-        "path": "./syntaxes/parsel.tmLanguage.json"
       }
     ]
   }
